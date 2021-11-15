@@ -1,8 +1,17 @@
 # caps
-## pull request:
-## in lab 11 it asked to setup a system of events and handlers
-- Global Event Pool
-- Vendor Client Application
-- Driver Client Application
+
+- [tests report](https://github.com/marwanrawshedh/caps/actions)
+# Setup
+- env requirements
+ - Port Number
+# Running the app
+- node server.js
+- node vendor.js
+- node driver.js
+- node emit.js
+# Tests
+- Unit Tests: npm run test
+# uml 
 ![uml](uml.PNG)
+# terminal
 ![console](console.PNG)

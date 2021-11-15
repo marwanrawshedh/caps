@@ -1,5 +1,9 @@
-const delivered=require('../module/handler/deliveredHandler');
-const driver=require('../module/handler/vendorHandler');
+const pickup=require('../handler/pickup');
+const inTransit=require('../handler/inTransit');
+const delivered=require('../handler/delivered');
+const vendor=require('../module/venedor/handler/vendorHandler');
+const driverdelivered=require('../module/driver/handler/deliveredHandler');
+const driverInTransit=require('../module/driver/handler/inTransitHandeler');
 const faker=require('faker');
 describe("logger test", () => {
     let payload={ 
@@ -21,16 +25,29 @@ describe("logger test", () => {
     afterEach(() => {
       consoleSpy.mockRestore();
     });
-    test("pickup handler", async () => {
+    test("1-CAPS pickup handler", async () => {
+      pickup(payload);
+      expect(consoleSpy).toHaveBeenCalled();
+    });
+    test("2-CAPS in-Transit", async () => {
+      inTransit(payload);
+      expect(consoleSpy).toHaveBeenCalled();
+    });
+    test("3-CAPS delivered handler", async () => {
         delivered(payload);
       expect(consoleSpy).toHaveBeenCalled();
     });
-    test("Vendor Client Application", async () => {
-        delivered(payload);
+    test("4-vendor handler", async () => {
+      vendor(payload);
       expect(consoleSpy).toHaveBeenCalled();
     });
-    test("Driver Client Application", async () => {
-        driver(payload);
+    test("5-driver handler (pickup)", async () => {
+      driverInTransit(payload);
       expect(consoleSpy).toHaveBeenCalled();
     });
+    test("6-driver handler (deliverd)", async () => {
+      driverdelivered(payload);
+    expect(consoleSpy).toHaveBeenCalled();
+  
+  });
 })
