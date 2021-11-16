@@ -6,17 +6,19 @@ const driverdelivered=require('../module/driver/handler/deliveredHandler');
 const driverInTransit=require('../module/driver/handler/inTransitHandeler');
 const faker=require('faker');
 describe("logger test", () => {
-    let payload={ 
-        "event": "pickup",
-        "time": faker.time.
-        recent(),
-        "payload": { 
-          "store": "1-206-flowers",
-          "orderID": `${faker.datatype.number()}-${faker.datatype.number()}-${faker.datatype.number()}`,
-          "customer": faker.name.findName(),
-          "address": faker.address.streetAddress()
+    let payload={
+      id: 'e69cd79d-ce52-4f7f-9cf2-ca5968014dc4',
+      payload: {
+        event: 'pickup',
+        time: 1637071740113,
+        payload: {
+          store: '1-800-flowers',
+          orderID: '89244-14497-32260',
+          customer: 'Heather Adams',
+          address: '371 Schmeler Rest'
         }
-      };
+      }
+    }
     let consoleSpy;
     beforeEach(() => {
       consoleSpy = jest.spyOn(console, "log").mockImplementation();
