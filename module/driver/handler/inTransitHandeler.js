@@ -1,3 +1,3 @@
 module.exports = (payload) => {
-  console.log(`pickUp ${payload.payload.orderID}`);
+  console.log(`pickUp ${payload.payload.payload.orderID}`);
 };
